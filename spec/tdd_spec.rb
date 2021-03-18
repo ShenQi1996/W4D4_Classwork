@@ -59,11 +59,16 @@ describe TowersOfHanoi do
     end
 
     describe "#play" do
-        it "should loop prompt_user, move_disc, win?"
+        it "should loop prompt_user, move_disc, win?" do
+            
+        end
     end
 
     describe "#won?" do
-        it "should return boolean of whether the last stack is filled up in order"
+        it "should return boolean of whether the last stack is filled up in order" do
+            game.stacks[2] += [4,3,2,1]
+            expect(game.won?).to be true
+        end
     end
 
 
