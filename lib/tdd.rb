@@ -47,5 +47,17 @@ class Array
 end
 
 class TowersOfHanoi
+    attr_reader :stacks
+    def initialize(num_disc, num_stacks)
+        @stacks = Array.new(num_stacks){Array.new}
+        build_game(num_disc)
+    end
 
+    private 
+
+    def build_game(num)
+        (1..num).each do |n|
+            @stacks[0] << n
+        end
+    end
 end

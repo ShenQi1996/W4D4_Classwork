@@ -33,9 +33,15 @@ describe Array do
 end
 
 describe TowersOfHanoi do
-
+    subject(:game) {TowersOfHanoi.new(4,3)}
     describe "#initialize" do
-        it "should create 3 arrays"
+        it "should create 3 arrays" do 
+            expect(game.stacks.length).to eq(3)
+        end
+
+        it "should add num of disc to stacks[0]" do 
+            expect(game.stacks[0]).to eq([1,2,3,4])
+        end
     end
 
 end
