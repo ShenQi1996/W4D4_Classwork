@@ -2,12 +2,13 @@ require "tdd"
 require "rspec"
 
 describe Array do
-    subject(:arr) {Array.new([1,2,3,4,5])}
-
+    
     describe "#my_uniq" do
+        subject(:arr) {Array.new([1,2,1,4,5])}
         it "should take in an array and return a new array" do
             expect(arr.my_uniq).not_to be(arr)
         end
+        #check if output is correct
     end
 
     describe "#two_sum" do
@@ -18,10 +19,12 @@ describe Array do
     end
 
     describe "#my_transpose" do 
-        it "return a new array that switch its rows and col " do
-            rows = [[1,2,3], [4,5,6], [7,8,9]]
+        #use let or subject for multiple it block tests
+        let(:rows) {[[1,2,3], [4,5,6], [7,8,9]]}
+        it "return a new array that switch its rows and col" do
             expect(rows.my_transpose).to eq([[1,4,7],[2,5,8],[3,6,9]])
         end
+        #check if output mutated or created new arr
     end
 
     describe "stock_prices" do
