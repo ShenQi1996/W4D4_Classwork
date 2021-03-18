@@ -24,4 +24,18 @@ describe Array do
         end
     end
 
+    describe "stock_prices" do
+        it "takes an array of stock prices and outputs the most profitable pair of days" do
+            stocks = [50,56,67,49,76,34,47]
+            expect(stocks.stock_prices).to eq([3,4])
+        end
+    end
+end
+
+describe TowersOfHanoi do
+
+    describe "#initialize" do
+        it "should create 3 arrays"
+    end
+
 end

@@ -26,4 +26,26 @@ class Array
         end
         new_arr
     end
+
+    def stock_prices
+        answer = []
+        temp = 0
+        self.each_with_index do |ele1, idx1|
+            self.each_with_index do |ele2, idx2|
+                if idx2 > idx1
+                    if ele2 - ele1 > temp
+                        temp = ele2 - ele1
+                        answer = [idx1, idx2]
+                    end
+                end
+            end
+        end
+        return answer
+    end
+
+
+end
+
+class TowersOfHanoi
+
 end
