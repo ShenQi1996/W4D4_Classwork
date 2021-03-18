@@ -40,8 +40,28 @@ describe TowersOfHanoi do
         end
 
         it "should add num of disc to stacks[0]" do 
-            expect(game.stacks[0]).to eq([1,2,3,4])
+            expect(game.stacks[0]).to eq([4,3,2,1])
         end
     end
+
+    describe "#move_disc" do
+        it "should move disc from one stack to another" do
+            game.move_disc(0,2)
+            expect(game.stacks[2]).to eq([1])
+        end
+
+        it "should raise error if invalid move" do
+            expect {game.move_disc(2,0)}.to raise_error("Invalid Move")
+        end
+    end
+
+    describe "#play" do
+        it "should loop prompt_user, move_disc, win?"
+    end
+
+    describe "#won?" do
+        it "should return boolean of whether the last stack is filled up in order"
+    end
+
 
 end

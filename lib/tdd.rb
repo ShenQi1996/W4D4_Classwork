@@ -53,11 +53,27 @@ class TowersOfHanoi
         build_game(num_disc)
     end
 
+    def move_disc(start_pos, end_pos)
+        if !start_pos.between?(0,2) || !end_pos.between?(0,2)
+            raise "Out of bounds" 
+        elsif @stacks[start_pos].empty?
+            raise "Invalid Move" 
+        elsif !@stacks[end_pos].empty? && @stacks[start_pos].last > @stacks[end_pos].last
+            raise "Disc too big" 
+        else
+            disc = @stacks[start_pos].pop
+            @stacks[end_pos] << disc
+        end
+    end
+
     private 
 
     def build_game(num)
-        (1..num).each do |n|
+        (1..num).to_a.reverse.each do |n|
             @stacks[0] << n
         end
     end
+
+ 
+
 end
