@@ -8,7 +8,9 @@ describe Array do
         it "should take in an array and return a new array" do
             expect(arr.my_uniq).not_to be(arr)
         end
-        #check if output is correct
+        it "should return a new array that with no dups" do 
+            expect(arr.my_uniq).to eq([1,2,4,5])
+        end
         it "should not call #uniq" do
             expect(arr).not_to receive(:uniq)
             arr.my_uniq
@@ -23,7 +25,6 @@ describe Array do
     end
 
     describe "#my_transpose" do 
-        #use let or subject for multiple it block tests
         let(:rows) {[[1,2,3], [4,5,6], [7,8,9]]}
         it "return a new array that switch its rows and col" do
             expect(rows.my_transpose).to eq([[1,4,7],[2,5,8],[3,6,9]])
@@ -34,6 +35,9 @@ describe Array do
         end
         #check if output mutated or created new arr
         #optional "don't use normal transpose" test
+        it "should not mutate the array" do 
+            expect(rows.my_transpose).not_to be rows
+        end
     end
 
     describe "stock_prices" do
@@ -41,7 +45,10 @@ describe Array do
         it "takes an array of stock prices and outputs the most profitable pair of days" do
             expect(stocks.stock_prices).to eq([3,4])
         end
-        #optional extra test for making sure id1 > id2
+        #optional extra test for making sure id1 < id2
+        # it "should only return if idx1 < idx2" do
+        #     expect(stacks.st).to
+        # end
     end
 end
 

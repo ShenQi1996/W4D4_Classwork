@@ -1,7 +1,11 @@
 class Array
 
     def my_uniq
-        self.uniq
+        new_arr = []
+        self.each do |ele|
+            new_arr << ele unless new_arr.include?(ele)
+        end
+        new_arr
     end
 
 
@@ -26,6 +30,7 @@ class Array
             i += 1
         end
         new_arr
+
     end
 
     def stock_prices
