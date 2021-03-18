@@ -17,4 +17,11 @@ describe Array do
         end
     end
 
+    describe "#my_transpose" do 
+        it "return a new array that switch its rows and col " do
+            rows = [[1,2,3], [4,5,6], [7,8,9]]
+            expect(rows.my_transpose).to eq([[1,4,7],[2,5,8],[3,6,9]])
+        end
+    end
+
 end
