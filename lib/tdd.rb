@@ -51,13 +51,14 @@ class TowersOfHanoi
     def initialize(num_disc, num_stacks)
         @stacks = Array.new(num_stacks){Array.new}
         build_game(num_disc)
+        @answer = @stacks[0].dup
     end
 
     def move_disc(start_pos, end_pos)
         if !start_pos.between?(0,2) || !end_pos.between?(0,2)
             raise "Out of bounds" 
         elsif @stacks[start_pos].empty?
-            raise "Invalid Move" 
+            raise "Invalid move" 
         elsif !@stacks[end_pos].empty? && @stacks[start_pos].last > @stacks[end_pos].last
             raise "Disc too big" 
         else
@@ -66,6 +67,24 @@ class TowersOfHanoi
         end
     end
 
+    def won?
+      @answer == @stacks[-1]
+    end
+
+    def display 
+        stacks.each_with_index do |subarr,i|
+            puts "#{i}-#{subarr}" 
+        end
+        return nil
+    end
+
+    def get_input
+        puts "Which stack would you like to move from (start from 0)"
+        input = gets.chomp.to_i
+        puts "Which stack would you like to move to (start from 0)"
+        input2 = gets.chomp.to_i
+        [input, input2]
+    end
     private 
 
     def build_game(num)
