@@ -85,6 +85,21 @@ class TowersOfHanoi
         input2 = gets.chomp.to_i
         [input, input2]
     end
+
+    def play
+        until won?
+            display
+            begin
+                pos1, pos2 = get_input
+                move_disc(pos1, pos2)
+            rescue  => e
+                puts e.message
+                retry
+            end
+        end
+        puts "Congratulations!"
+    end
+
     private 
 
     def build_game(num)
