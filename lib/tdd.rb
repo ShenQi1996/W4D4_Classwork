@@ -1,7 +1,7 @@
 class Array
 
     def my_uniq
-        self.map { |ele| ele }
+        self.uniq
     end
 
 
@@ -18,6 +18,7 @@ class Array
     end
 
     def my_transpose 
+        # self.transpose
         new_arr = Array.new(self.length){Array.new}
         i = 0
         while i < self[0].length

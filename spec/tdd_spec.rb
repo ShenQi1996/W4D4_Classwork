@@ -9,6 +9,10 @@ describe Array do
             expect(arr.my_uniq).not_to be(arr)
         end
         #check if output is correct
+        it "should not call #uniq" do
+            expect(arr).not_to receive(:uniq)
+            arr.my_uniq
+        end
     end
 
     describe "#two_sum" do
@@ -24,14 +28,20 @@ describe Array do
         it "return a new array that switch its rows and col" do
             expect(rows.my_transpose).to eq([[1,4,7],[2,5,8],[3,6,9]])
         end
+        it "shouldn't call transpose" do
+            expect(rows).not_to receive(:transpose)
+            rows.my_transpose
+        end
         #check if output mutated or created new arr
+        #optional "don't use normal transpose" test
     end
 
     describe "stock_prices" do
+        let(:stocks) {[50,56,67,49,76,34,47]}
         it "takes an array of stock prices and outputs the most profitable pair of days" do
-            stocks = [50,56,67,49,76,34,47]
             expect(stocks.stock_prices).to eq([3,4])
         end
+        #optional extra test for making sure id1 > id2
     end
 end
 
