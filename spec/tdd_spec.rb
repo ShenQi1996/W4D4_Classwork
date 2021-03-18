@@ -51,7 +51,10 @@ describe TowersOfHanoi do
         end
 
         it "should raise error if invalid move" do
-            expect {game.move_disc(2,0)}.to raise_error("Invalid Move")
+            game.move_disc(0,2)
+            expect {game.move_disc(1,0)}.to raise_error("Invalid move")
+            expect {game.move_disc(0,2)}.to raise_error("Disc too big")
+            expect {game.move_disc(-1,0)}.to raise_error("Out of bounds")
         end
     end
 
